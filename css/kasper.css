@@ -1,0 +1,75 @@
+/* Start General Edit */
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family:'Open Sans', 'Helvetica Neue', sans-serif;
+}
+html {
+    scroll-behavior: smooth;
+}
+/* End General Edit  */
+/* Start Edit Container  */
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+/* Start Responsive Container */
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+    }
+}
+ /* Medium screen  */
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+ /* Large screen  */
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+/* End Responsive Container */
+
+/* End Edit Container  */
+
+/* Start Varibales  */
+:root {
+    --section-color : #222
+}
+/* End Variables  */
+
+/* Start Header  */
+header {
+    background-color: var(--section-color);
+}
+.header-content {
+    display: flex;
+    justify-content: space-between;
+}
+header .links {
+    display: flex;
+    align-items: center;
+}
+header .links a {
+    text-decoration: none;
+}
+header .links ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+header .links ul li {
+    display: inline;
+    padding: 10px;
+}
+
+
+/* End Header  */
+
+
