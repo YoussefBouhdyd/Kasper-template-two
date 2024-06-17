@@ -48,17 +48,14 @@ html {
 /* End Variables  */
 
 /* Start Header  */
+header {
+    position: absolute;
+    width: 100%;
+}
 header .header-content {
     display: flex;
     justify-content: space-between;
     position: relative;
-}
-
-/* Can You delete it  */
-@media (max-width: 990px) {
-    header .header-content {
-        flex-wrap: wrap;
-    }
 }
 
 header .header-content::after {
@@ -73,26 +70,10 @@ header .header-content::after {
 header .header-content .logo img {
     height: 90px;
 }
-/* Can You delete it  */
-@media (max-width: 990px) {
-    header .header-content .logo {
-        width: 90%;
-    }
-}
 
 header .links {
     display: flex;
     align-items: center;
-}
-
-/* Can You delete it  */
-@media (max-width: 990px) {
-    header .links {
-        position: absolute;
-        bottom: -40px;
-        width: 90%;
-        display: none;
-    }
 }
 
 header .links a {
@@ -103,15 +84,9 @@ header .links ul {
     margin: 0;
     list-style: none;
 }
-/* Can You delete it  */
-@media (max-width: 990px) {
-    header .links ul {
-        position: absolute;
-    }
-}
 
 header .links ul li {
-    display: inline-flex;
+    display: inline-flex; /* I put this inline-flex to make the ::after poping from the middle*/
     padding: 10px 20px;
     color: #fff;
     font-weight: 600;
@@ -119,8 +94,6 @@ header .links ul li {
     position: relative;
     justify-content: center;
 }
-
-
 
 header .links ul li:hover {
     color: var(--main-color)
@@ -137,13 +110,6 @@ header .links ul li::after {
     transition: .3s;
 }
 
-/* Can You delete it  */
-@media (max-width: 990px) {
-    header .links ul li::after {
-        bottom: -1px;
-    }
-}
-
 header .links ul li:hover::after {
     width: 100%;
 }
@@ -152,15 +118,6 @@ header .header-content .search {
     display: flex;
     align-items: center;
     position: relative;
-}
-/* Can You delete it  */
-@media (max-width: 990px) {
-    header .header-content .search {
-        position: absolute;
-        bottom: -50px;
-        right: 0;
-        display: none;
-    }
 }
 
 header .header-content .search::after{
@@ -176,29 +133,153 @@ header .header-content .search .fa-search {
     color: #fff;
     font-size: 20px;
 }
-
 header .header-content .bars {
-    display: none;
+    font-size: 30px;
+    position: absolute;
+    right: 50px;
+    color: white;
+    bottom: 50%;
+    transform: translateY(50%);
 }
-/* Can You delete it  */
-@media (max-width: 990px) {
+@media (min-width:768px) {
     header .header-content .bars {
-        display: flex;
-        font-size: 30px;
-        align-items: center;
+        display: none;
     }
-    header .header-content .bars:hover~div {
+}
+@media (max-width:767px) {
+    header .header-content .links ul{
+        display: none;
+        width: 100%;
+    }
+    header .header-content .links ul li {
+        justify-content: flex-start;
+        padding: 20px;
+        width: 100%;
+    }
+    header .links ul li::after {
+        bottom: -1px;
+        transition: .5s;
+    }
+    header .header-content .bars:hover + .links ul{
         display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;    
+    }
+    header .header-content .bars:hover+div+div+div+div{
+        filter: blur(2px);
     }
 }
 /* End Header  */
 
 /* Start Landing  */
-header .landing {
+.landing {
     background-image: url(../images/landing3.jpg);
-    height: calc(100vh - 80px);
+    height: 100vh;
     background-size: cover;
-    margin-top: -95px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: -1;
+    flex-wrap: wrap;
+}
+/* Creat the arrow in the edge of landing  */
+.landing::after {
+    content: "";
+    background-color: transparent;
+    width: 20px;
+    height: 20px;
+    border: 3px solid;
+    border-right: none;
+    border-top: none;
+    bottom: 50%;
+    transform: translateY(50%) rotate(45deg);
+    z-index: 2;
+    position: absolute;
+    border-color: #fff;
+    left: 20px;
+}
+.landing::before {
+    content: "";
+    background-color: transparent;
+    width: 20px;
+    height: 20px;
+    border: 3px solid;
+    border-right: none;
+    border-top: none;
+    bottom: 50%;
+    transform: translateY(50%) rotate(225deg);
+    z-index: 2;
+    position: absolute;
+    border-color: #fff;
+    right: 20px;
+}
+.landing .overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0 , 40%);
+}
+.landing .label {
+    color: #fff;
+    width: 50%;
+    background-color: #00a8d7ba;
+    z-index: 1;
+}
+@media (max-width:767px) {
+    .landing .label {
+        width: 100%;
+    }
+}
+.landing .label .label-content {
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+@media (max-width:767px) {
+    .landing .label .label-content {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+.landing .label .label-content h2 {
+    text-transform: uppercase;
+    font-weight: normal;
+    margin-bottom: 10px;
+    width: 60%;
+    line-height: 1.5;
+}
+.landing .label .label-content p {
+    line-height: 2;
+    width: 60%;
+}
+/* Creat the bollet in bottom of the landing  */
+.landing .bollet {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.landing .bollet span {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    position: relative;
+}
+.landing .bollet span:nth-child(2){
+    background-color: var(--main-color);
+    border-color: var(--main-color);
+    margin-left: 5px;
+    margin-right: 5px;
 }
 /* End Landing  */
 
