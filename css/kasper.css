@@ -43,12 +43,14 @@ html {
 /* Start Varibales  */
 :root {
     --main-color : #19c8fa ;
-    --section-color : #222;
+    --label-color : #00a8d7ba;
     --text-color: #777;
 }
 /* End Variables  */
 
 /* Start Components */
+
+    /* Start Title of Section  */
 .head-section {
     padding: 20px;
     margin: 50px auto;
@@ -62,27 +64,37 @@ html {
     letter-spacing: 1.5px;
     text-transform: uppercase;
 }
+.head-section:hover h1::after {
+    background-color: #fff;
+}
 .head-section h1::after {
     content: "";
     position: absolute;
     width: 10px;
     height: 10px;
-    background-color: #fff;
+    background-color: black;
     border: 2px solid black;
     border-radius: 50%;
     left: 50%;
     transform: translate(-50%,50%);
     bottom: 0;
+    transition: .5s;
+    transition-timing-function: linear;
 }
 .head-section h1::before {
     content: "";
     position: absolute;
-    width: 120px;
+    width: 0;
     height: 2px;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
     background-color: black;
+    transition: .5s;
+    transition-timing-function: linear;
+}
+.head-section:hover h1::before {
+    width: 120px;
 }
 
 .head-section p {
@@ -92,6 +104,19 @@ html {
     margin: 0 auto;
     max-width: 100%;
 }
+        /* End Title of Section  */
+
+        /* Start Properties of Overlay  */
+.overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0 , 40%);
+}
+        /* End Properties of Overlay  */
+
 /* End Components */
 
 /* Start Header  */
@@ -234,6 +259,23 @@ header .header-content .bars {
     flex-wrap: wrap;
 }
 /* Creat the arrow in the edge of landing  */
+@keyframes To_right {
+    from {
+        transform: translate(0%,50%) rotate(225deg);
+    }
+    to {
+        transform: translate(50%,50%) rotate(225deg);
+    }
+}
+
+@keyframes To_left {
+    from {
+        transform: translate(0%,50%) rotate(45deg);
+    }
+    to {
+        transform: translate(-50%,50%) rotate(45deg);
+    }
+}
 .landing::after {
     content: "";
     background-color: transparent;
@@ -248,6 +290,11 @@ header .header-content .bars {
     position: absolute;
     border-color: #fff;
     left: 20px;
+    animation-name: To_left;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: linear;
 }
 .landing::before {
     content: "";
@@ -263,19 +310,16 @@ header .header-content .bars {
     position: absolute;
     border-color: #fff;
     right: 20px;
-}
-.landing .overlay {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0 , 40%);
+    animation-name: To_right;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: linear;
 }
 .landing .label {
     color: #fff;
     width: 50%;
-    background-color: #00a8d7ba;
+    background-color: var(--label-color);
     z-index: 1;
 }
 @media (max-width:767px) {
@@ -409,5 +453,71 @@ header .header-content .bars {
     color: var(--text-color);
     font-size: 15px;
 }
+/* Animation rotates the icon of cog   */
+/* @keyframes Rotate {
+    from{
+        transform: translateY(0) rotate(0deg);
+    }
+    to{
+        transform: translateY(-5px) rotate(360deg);
+    }
+}
+.services .services-content .service:nth-child(2) .icon i {
+    animation: Rotate 2s linear infinite alternate;
+} */
+/* Animation moving the icon up to down and reverse  */
+@keyframes UpDown {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-5px);
+    }
+}
 
+.services .services-content .service .icon i {
+    animation: UpDown 1s linear infinite alternate;
+}
+
+.services .desgin-landing {
+    margin-top: 50px;
+    background-image: url(../images/landing7.jpg);
+    height: 50vh;
+    background-size: cover;
+    background-position: bottom;
+    position: relative;
+}
+.services .desgin-landing .desgin-info {
+    position: absolute;
+    width: 45%;
+    background-color: var(--label-color);
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+@media (max-width:767px) {
+    .services .desgin-landing .desgin-info {
+        width: 100%;
+    }
+}
+
+.services .desgin-landing .desgin-info .desgin-text {
+    color: #fff;
+    padding: 30px;
+}
+.services .desgin-landing .desgin-info .desgin-text h2 {
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    font-weight: normal;
+}
+
+.services .desgin-landing .desgin-info .desgin-text .feature {
+    display: flex;
+    padding: 10px 0px;
+}
+.services .desgin-landing .desgin-info .desgin-text .feature i {
+    margin-right: 20px;
+}
 
