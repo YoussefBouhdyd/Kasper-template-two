@@ -43,9 +43,56 @@ html {
 /* Start Varibales  */
 :root {
     --main-color : #19c8fa ;
-    --section-color : #222
+    --section-color : #222;
+    --text-color: #777;
 }
 /* End Variables  */
+
+/* Start Components */
+.head-section {
+    padding: 20px;
+    margin: 50px auto;
+    text-align: center;
+}
+.head-section h1 {
+    font-weight: normal;
+    position: relative;
+    padding: 20px;
+    font-size: 2.4rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+.head-section h1::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    border: 2px solid black;
+    border-radius: 50%;
+    left: 50%;
+    transform: translate(-50%,50%);
+    bottom: 0;
+}
+.head-section h1::before {
+    content: "";
+    position: absolute;
+    width: 120px;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: black;
+}
+
+.head-section p {
+    color: var(--text-color);
+    line-height: 1.8;
+    width: 700px;
+    margin: 0 auto;
+    max-width: 100%;
+}
+/* End Components */
 
 /* Start Header  */
 header {
@@ -167,9 +214,11 @@ header .header-content .bars {
         top: 100%;
         left: 0;    
     }
-    header .header-content .bars:hover+div+div+div+div{
+    /* There is a problem in pop menu I tried to slove it but i couldn't  */
+    
+    /* header .header-content .bars:hover +.landing{
         filter: blur(2px);
-    }
+    } */
 }
 /* End Header  */
 
@@ -266,6 +315,7 @@ header .header-content .bars {
     width: 100%;
     display: flex;
     justify-content: center;
+    margin-bottom: 10px;
 }
 .landing .bollet span {
     display: inline-block;
@@ -276,11 +326,88 @@ header .header-content .bars {
     position: relative;
 }
 .landing .bollet span:nth-child(2){
+    margin-left: 10px;
+    margin-right: 10px;
     background-color: var(--main-color);
     border-color: var(--main-color);
-    margin-left: 5px;
-    margin-right: 5px;
 }
+/* Start Animation of changing background image*/
+/* THIS DOESN'T WORK YET  */
+@keyframes change_background_image {
+    0% {
+        background-image: url(../images/landing1.jpg);
+    }
+    50% {
+        background-image: url(../images/landing2.jpg);
+    }
+    100% {
+        background-image: url(../images/landing3.jpg);
+    }
+}
+/* End Animation of changing background image*/
+
+/* Start Animation of changing bollet background  */
+/* THIS DOESN'T WORK YET  */
+@keyframes change_bollet_color {
+    from {
+        background-color: transparent;
+        border: 2px solid #fff;
+    }
+    to {
+        background-color: var(--main-color);
+        border-color: var(--main-color);
+    }
+}
+/* End Animation of changing bollet background  */
+
 /* End Landing  */
+
+/* Start Services  */
+
+/* End Services  */
+
+.services .services-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(500px,1fr));
+    padding: 20px 30px;
+    gap: 30px;
+}
+@media (max-width:767px) {
+    .services .services-content {
+        grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
+    }
+}
+.services .services-content .service {
+    display: flex;
+}
+@media (max-width:767px) {
+    .services .services-content .service {
+        flex-direction: column;
+    }
+}
+.services .services-content .service .icon {
+    flex: 1;
+    font-size: 3em;
+    text-align: center;
+    margin-top: 20px;
+}
+.services .services-content .service .text {
+    width: 65%;
+}
+@media (max-width:767px) {
+    .services .services-content .service .text {
+        width: 100%;
+        text-align: center;
+    }
+}
+.services .services-content .service .text h3 {
+    color: var(--main-color);
+    padding: 20px 0;
+}
+.services .services-content .service .text p {
+    line-height: 1.5;
+    color: var(--text-color);
+    font-size: 15px;
+}
 
 
