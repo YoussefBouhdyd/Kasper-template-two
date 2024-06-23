@@ -765,3 +765,98 @@ header .header-content .bars {
     }
 }
 /* End About  */
+/* Start Skills  */
+.skills {
+    margin: 100px 0;
+}
+/* ------------------------------ begin progress ------------------------------ */
+.skills .progress {
+    text-align: center;
+}
+.skills .progress h2 {
+    font-weight: normal;
+    font-size: 30px;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+}
+.skills .progress p {
+    color: var(--text-color);
+    margin: 00 0 40px 0;
+}
+.skills .progress .bar {
+    height: 50px;
+    background-color: #eee;
+    margin: 40px 0;
+    position: relative;
+    transition: .3s;
+}
+.skills .progress .bar::before {
+    position: absolute;
+    left: 5px;
+    top: -20px;
+    text-transform: uppercase;
+}
+.skills .progress .bar::after {
+    position: absolute;
+    top: 0px;
+    z-index: -1;
+    width: 40px;
+    height: 30px;
+    color: #fff;
+    background-color: #000;
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 60% 80%, 50% 100%, 40% 80%, 0 80%);
+    transform: translateX(-50%);
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    transition: .3s;
+}
+.skills .progress .bar:hover::after {
+    top: -30px
+}
+.skills .progress .bar1 {
+    background-image: linear-gradient(90deg,var(--main-color) 0%,var(--main-color) 70%,#ddd 0%);
+}
+.skills .progress .bar1::before {
+    content: "python";
+}
+.skills .progress .bar1::after {
+    content: "70%";
+    left: 70%;
+}
+.skills .progress .bar2 {
+    background-image: linear-gradient(90deg,var(--main-color) 0%,var(--main-color) 65%,#ddd 0%);
+}
+.skills .progress .bar2::before {
+    content: "html & css";
+}
+.skills .progress .bar2::after {
+    content: "65%";
+    left: 65%;
+}
+.skills .progress .bar3 {
+    background-image: linear-gradient(90deg,var(--main-color) 0%,var(--main-color) 40%,#ddd 0%);
+}
+.skills .progress .bar3::before {
+    content: "C";
+}
+.skills .progress .bar3::after {
+    content: "40%";
+    left: 40%;
+}
+.skills .progress .bar4 {
+    background-image: linear-gradient(90deg,var(--main-color) 0%,var(--main-color) 10%,#ddd 0%);
+}
+.skills .progress .bar4::before {
+    content: "bash";
+}
+.skills .progress .bar4::after {
+    content: "10%";
+    left: 10%;
+    bottom: 100%;
+}
+/* ------------------------------ end progress ------------------------------ */
+/* End Skills  */
