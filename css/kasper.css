@@ -979,3 +979,51 @@ header .header-content .bars {
 /* End the bollet  */
 /* ------------------------------ end testimonials ------------------------------ */
 /* End Skills  */
+/* Start Quote  */
+.quote {
+    background-image: url("../images/landing4.jpg");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.quote::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0 0 0 / 50%);
+    top: 0;
+    right: 0;
+}
+.quote Q {
+    color: #fff;
+    position: relative;
+    z-index: 1;
+    font-size: 30px;
+    text-align: center;
+}
+.quote Q::after {
+    content: "\f10d";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+}
+.quote Q::before {
+    content: "\f10d";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+}
+.quote p {
+    position: relative;
+    margin-top: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #fff;
+    z-index: 1;
+    font-style: italic;
+}
+/* End Quote  */
