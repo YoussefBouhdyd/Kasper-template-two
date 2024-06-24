@@ -10,6 +10,16 @@
 html {
     scroll-behavior: smooth;
 }
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #19c9fa76;
+    border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--main-color);
+}
 /* End General Edit  */
 /* Start Edit Container  */
 .container {
@@ -712,6 +722,7 @@ header .header-content .bars {
     left: 50%;
     transform: translate(-50%, 50%);
     display: flex;
+    flex-wrap: wrap;
     background-color: var(--label-color);
     width: 60%;
     justify-content: space-around;
@@ -719,9 +730,7 @@ header .header-content .bars {
 }
 @media (max-width:767px) {
     .about .states .records {
-        width: 100%;
-        flex-direction: column;
-        padding: 0;    
+        width: 100%; 
     }
 }
 .about .states .records .record {
@@ -731,7 +740,8 @@ header .header-content .bars {
 }
 @media (max-width:767px){
     .about .states .records .record {
-        margin: 0 0 18px 0;
+        margin: 0 0 30px 0;
+        width: 50%;
     }
 }
 .about .states .records .record p {
@@ -864,14 +874,14 @@ header .header-content .bars {
     left: 40%;
 }
 .skills .progress .bar4 {
-    background-image: linear-gradient(90deg,var(--main-color) 0%,var(--main-color) 10%,#ddd 0%);
+    background-image: linear-gradient(90deg,var(--main-color) 0%,var(--main-color) 30%,#ddd 0%);
 }
 .skills .progress .bar4::before {
     content: "bash";
 }
 .skills .progress .bar4::after {
-    content: "10%";
-    left: 10%;
+    content: "30%";
+    left: 30%;
     bottom: 100%;
 }
 /* ------------------------------ end progress ------------------------------ */
@@ -906,12 +916,21 @@ header .header-content .bars {
     align-items: center;
     margin-bottom: 50px;
 }
+@media (max-width:767px) {
+    .skills .testimonials .content .box {
+        flex-direction: column;
+        text-align: center;
+    }
+}
 .skills .testimonials .content .profile-image{
     height: 100px;
     width: 100px;
     border-radius: 50%;
     background-color: #eee;
     overflow: hidden;
+}
+.skills .testimonials .content .box:first-child .profile-image img {
+    transform: translate(-10px,-30px) scale(1.2);
 }
 .skills .testimonials .content .profile-image img {
     width: 100%;
