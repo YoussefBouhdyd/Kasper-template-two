@@ -1194,6 +1194,7 @@ header .header-content .bars {
     font-weight: bold;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 .news .container .send-box label {
     position: absolute;
@@ -1238,7 +1239,6 @@ header .header-content .bars {
 }
 .contact-us  .container .contact-content form{
     width: 70%;
-    position: relative;
 }
 @media (max-width:767px) {
     .contact-us  .container .contact-content form {
@@ -1278,14 +1278,13 @@ header .header-content .bars {
     text-transform: uppercase;
     color: #fff;
     font-size: 14px;
-    position: absolute;
-    top: 100%;
-    left: 100%;
-    transform: translateX(-100%);
+    display: flex;
+    margin-left: auto;
+    cursor: pointer;
 }
 @media (max-width:767px) {
     .contact-us  .container .contact-content form input[type = "submit"] {
-        left: 50%;
+        margin-left: 50%;
         transform: translate(-50%);
     }
 }
@@ -1299,6 +1298,7 @@ header .header-content .bars {
         text-align: center;
     }
 }
+/* this selector exit just in responsive   */
 @media (max-width:767px) {
     .contact-us  .container .contact-content .direct-contact .number {
         margin-top: 100px;
@@ -1313,6 +1313,6 @@ header .header-content .bars {
 }
 .contact-us  .container .contact-content .direct-contact p {
     color: var(--text-color);
-    padding: 5px 0;
+    line-height: 1.8 ;
 }
 /* End Contact Us */
