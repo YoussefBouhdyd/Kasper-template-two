@@ -1231,8 +1231,19 @@ header .header-content .bars {
     display: flex;
     justify-content: space-between;
 }
+@media (max-width:767px) {
+    .contact-us  .container .contact-content {
+        flex-direction: column;
+    }
+}
 .contact-us  .container .contact-content form{
     width: 70%;
+    position: relative;
+}
+@media (max-width:767px) {
+    .contact-us  .container .contact-content form {
+        width: 100%;
+    }
 }
 .contact-us  .container .contact-content form input[type = "text"]{
     width: 100%;
@@ -1252,6 +1263,13 @@ header .header-content .bars {
     outline: none;
     border: 1px solid var(--text-color);
 }
+.contact-us  .container .contact-content form input[type = "email"]::placeholder,
+.contact-us  .container .contact-content form input[type = "text"]::placeholder,
+.contact-us  .container .contact-content form textarea::placeholder {
+    text-transform: uppercase;
+    color: #000;
+    font-size: 13px;
+}
 
 .contact-us  .container .contact-content form input[type = "submit"]{
     padding: 15px 30px;
@@ -1260,13 +1278,34 @@ header .header-content .bars {
     text-transform: uppercase;
     color: #fff;
     font-size: 14px;
+    position: absolute;
+    top: 100%;
+    left: 100%;
+    transform: translateX(-100%);
+}
+@media (max-width:767px) {
+    .contact-us  .container .contact-content form input[type = "submit"] {
+        left: 50%;
+        transform: translate(-50%);
+    }
 }
 .contact-us  .container .contact-content .direct-contact {
     text-transform: uppercase;
     width: 20%;
 }
+@media (max-width:767px) {
+    .contact-us  .container .contact-content .direct-contact {
+        width: 100%;
+        text-align: center;
+    }
+}
+@media (max-width:767px) {
+    .contact-us  .container .contact-content .direct-contact .number {
+        margin-top: 100px;
+    } 
+}
 .contact-us  .container .contact-content .direct-contact .location{
-    margin-top: 100px;
+    margin-top: 80px;
 }
 .contact-us  .container .contact-content .direct-contact h4 {
     margin-bottom: 30px;
